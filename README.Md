@@ -1,7 +1,4 @@
 **"School Marksheet Generator (Streamlit App)"**.
-
-Here is a **ready-to-paste `README.md`** file including only the **necessary Python dependencies** for your **School Marksheet Generator** project based on the code you provided.
-
 ---
 
 ````markdown
