@@ -1,189 +1,109 @@
 **"School Marksheet Generator (Streamlit App)"**.
 
+Here is a **ready-to-paste `README.md`** file including only the **necessary Python dependencies** for your **School Marksheet Generator** project based on the code you provided.
+
 ---
 
-```markdown
+````markdown
 # 🏫 School Marksheet Generator
 
-A user-friendly web application built with **Streamlit** that allows teachers or administrators to upload an Excel file and automatically generate personalized **PDF marksheets** for students — complete with subject-wise grades, school branding, and principal signature.
+A secure, user-authenticated Streamlit web app to generate personalized student marksheets from Excel files and export them as individual or merged PDF documents. Designed for schools or educational institutions to automate result generation efficiently.
 
 ---
 
-## 📌 Features
+## 🚀 Features
 
-- 🔐 **Secure Login & User Authentication**
-  - Simple username/password protection with bcrypt hashing.
-  - User-specific sessions maintained securely via Streamlit session state.
-
-- 📁 **Excel-Based Mark Upload**
-  - Upload student data in Excel format.
-  - Dynamic detection of subject columns.
-  - Automatic grade calculation for each subject.
-
-- 🖨️ **Auto-Generated Marksheet PDFs**
-  - Generates individual PDFs for each student.
-  - Includes student's name, roll number, parent details, marks, and grades.
-  - Includes school logo, name, address, session, and principal signature.
-  - Merges all PDFs into a downloadable single file.
-
-- 📝 **Customizable School Details**
-  - School name, address, class, session year, principal name and logo are saved per user session.
-
-- 📤 **Downloadable Merged PDF**
-  - Download all generated marksheets as one consolidated file.
-  - Preview marksheets directly within the browser.
-
----
-
-## 🚀 Live Demo
-
-> Coming soon... (you can deploy this on [Streamlit Cloud](https://streamlit.io/cloud) or a private server)
-
----
-
-## 🛠️ Tech Stack
-
-- **Python 3.9+**
-- **Streamlit** - for frontend UI
-- **pandas** - for data handling
-- **FPDF** - for PDF generation
-- **PyPDF2** - for merging PDFs
-- **bcrypt** - for secure password hashing
-
----
-
-## 📁 Project Structure
-
-```
-
-📦 School-Marksheet-Generator
-├── 📄 app.py                 # Main Streamlit app
-├── 📄 users.csv              # Stores registered users and their hashed passwords
-├── 📁 generated\_marksheets   # Output folder for generated PDFs
-├── 📄 requirements.txt       # Required Python packages
-└── 📄 README.md              # You're here!
-
-````
-
----
-
-## 🧾 Excel Format Example
-
-Your uploaded Excel file **must contain** these mandatory columns:
-
-| Roll No. | Name of the student | Father's Name | Mother's Name | Math | Science | ... |
-|----------|---------------------|----------------|----------------|------|---------|-----|
-
-- The script dynamically detects the remaining columns as subjects.
-- It calculates grades for each subject based on marks.
-
----
-
-## 📊 Grading Scheme
-
-| Marks Range | Grade |
-|-------------|-------|
-| 90 - 100    | A+    |
-| 80 - 89     | A     |
-| 70 - 79     | B+    |
-| 60 - 69     | B     |
-| 50 - 59     | C     |
-| 40 - 49     | D     |
-| Below 40    | F     |
-
----
-
-## 🧪 How to Run Locally
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/yourusername/school-marksheet-generator.git
-cd school-marksheet-generator
-````
-
-### 2. Create Virtual Environment (Optional but Recommended)
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-
-### 3. Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Run the App
-
-```bash
-streamlit run app.py
-```
-
-The app will launch in your browser at `http://localhost:8501`.
+- ✅ **User Authentication** (login/signup with password hashing)
+- 📤 Upload Excel with student marks
+- 📝 Automatically compute grades
+- 🖨️ Generate professional marksheets in PDF format
+- 🧾 Merge all PDFs for easy download
+- 🖼️ School logo, principal signature, and academic session info
+- 🧠 Saves permanent school/class details per user session
 
 ---
 
 ## 📦 Requirements
 
-The `requirements.txt` file should contain:
+Install dependencies using the `requirements.txt` below:
 
-```
-streamlit
-bcrypt
-pandas
-fpdf
-PyPDF2
-openpyxl
-```
+```txt
+streamlit==1.44.1
+bcrypt==4.3.0
+pandas==2.2.3
+fpdf==1.7.2
+PyPDF2==3.0.1
+openpyxl==3.1.5
+````
 
-To generate it, run:
+To install:
 
 ```bash
-pip freeze > requirements.txt
+pip install -r requirements.txt
 ```
 
 ---
 
-## ✅ To-Do / Future Enhancements
+## 📁 Folder Structure
 
-* Add student photos to the marksheet.
-* Email individual PDFs to students/parents.
-* Include bar charts or visual grade summary.
-* Admin dashboard for managing users and reports.
-* Export data to CSV/Excel post-grading.
-
----
-
-## 🔒 Security Note
-
-* Passwords are hashed using **bcrypt** and stored in `users.csv`.
-* Do not expose the `users.csv` file in public repositories if sensitive data is stored.
-
----
-
-## 📄 License
-
-This project is open-source and available under the **MIT License**.
-
----
-
-## 🙌 Contributing
-
-Pull requests are welcome! If you find bugs or want to suggest features, feel free to open an issue or submit a PR.
-
----
-
-## 👨‍💻 Author
-
-Developed by \[Ansh Jain]
-📧 Contact: \[[anshjainsdw@gmail.com](mailto:anshjainsdw@gmail.com)]
-📎 GitHub: [github.com/Anshjain05](https://github.com/Anshjain05)
-
----
-
+```bash
+project/
+│
+├── app.py                  # Main Streamlit application file
+├── users.csv               # Stores user credentials (generated at runtime)
+├── generated_marksheets/   # Stores generated PDF files
+├── README.md               # Project documentation
+└── requirements.txt        # Python dependencies
 ```
 
-Let me know if you'd like me to include screenshots or a badge section (e.g., Streamlit app status, Python version, etc.) or tailor it to your GitHub username!
+---
+
+## 🧪 Excel File Format
+
+The Excel file should contain the following columns:
+
+| Roll No. | Name of the student | Father's Name | Mother's Name | Subject 1 | Subject 2 | ... |
+| -------- | ------------------- | ------------- | ------------- | --------- | --------- | --- |
+
+**Note:** Subject names can be dynamic. Grades will be auto-calculated for each subject.
+
+---
+
+## 🛠️ How to Use
+
+1. **Run the App**
+
+```bash
+streamlit run app.py
+```
+
+2. **Create an Account** or Login
+
+3. **Fill Permanent Details** (School info, logo, principal name)
+
+4. **Upload Excel File** with student marks
+
+5. **Click "Generate Marksheets"**
+
+6. **Preview and Download Merged PDF**
+
+---
+
+## 🔐 Security Notes
+
+* Passwords are hashed using `bcrypt` and stored in `users.csv`.
+* Make sure `users.csv` is secured or use a proper database in production.
+
+---
+
+## 📃 License
+
+MIT License
+
+---
+
+## 🙌 Acknowledgments
+
+Developed with ❤️ using [Streamlit](https://streamlit.io/), [FPDF](https://pyfpdf.github.io/), and [PyPDF2](https://pypi.org/project/PyPDF2/).
+
 ```
