@@ -1,0 +1,6 @@
+streamlit==1.44.1
+bcrypt==4.3.0
+pandas==2.2.3
+fpdf==1.7.2
+PyPDF2==3.0.1
+openpyxl==3.1.5
